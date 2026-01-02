@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONGOZA KOFFI | Développeur Web Fullstack</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <span class="logo">KONGOZA KOFFI</span>
+            <ul class="nav-links">
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#cv">CV</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 class="glitch" data-text="KONGOZA KOFFI">KONGOZA KOFFI</h1>
+        <p class="subtitle">Développeur Web Fullstack</p>
+        <div class="available-badge"><span class="dot"></span> Disponible pour projets</div>
+        <a href="#contact" class="btn">Let’s Talk</a>
+    </header>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projets</h2>
+            <div class="grid" id="projectsGrid"></div>
+        </div>
+    </section>
+
+    <section id="skills" class="section dark">
+    <div class="container">
+        <h2 class="section-title">Compétences</h2>
+        <div class="skills-wrapper">
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <span>HTML5</span>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-css3-alt"></i>
+                <span>CSS3</span>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js"></i>
+                <span>JavaScript</span>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-php"></i>
+                <span>PHP</span>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <span>MySQL</span>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-git-alt"></i>
+                <span>Git</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Nom" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <button type="submit" class="btn">Envoyer le Signal</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© <span id="year"></span> KONGOZA KOFFI</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
