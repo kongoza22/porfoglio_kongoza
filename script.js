@@ -3,9 +3,9 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 // 2. Projets Dynamiques
 const projects = [
-  { title: "Cyber Café", desc: "Gestion de temps et facturation.", tech: ["PHP", "MySQL"], img: "cyber.png" },
-  { title: "E-commerce", desc: "Boutique en ligne moderne.", tech: ["JS", "CSS"], img: "itstore.jpeg" },
-  { title: "Portfolio", desc: "Le site que vous voyez ici.", tech: ["HTML", "JS"], img: "porfoglio.png" }
+  { title: "Cyber Café", desc: "Gestion de temps et facturation.", tech: ["PHP", "MySQL"], img:"cyber.png" },
+  { title: "E-commerce", desc: "Boutique en ligne moderne.", tech: ["JS", "CSS"], img:"itstore.jpeg" },
+  { title: "Portfolio", desc: "Le site que vous voyez ici.", tech: ["HTML", "JS"], img:"porfoglio.png" }
 ];
 
 const grid = document.getElementById("projectsGrid");
