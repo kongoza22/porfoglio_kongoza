@@ -1,91 +1,85 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KONGOZA KOFFI | Développeur Web Fullstack</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
 <body>
-
     <canvas id="matrix"></canvas>
 
     <nav class="navbar">
         <div class="container nav-flex">
-            <span class="logo">KONGOZA KOFFI</span>
+            <span class="logo">SYLLA SEKOU // PILOTE</span>
             <ul class="nav-links">
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="#cv">CV</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#mission1"><i class="fas fa-plane-departure"></i> Leadership</a></li>
+                <li><a href="#mission2"><i class="fas fa-palette"></i> Design</a></li>
+                <li><a href="#mission3"><i class="fas fa-cogs"></i> Technique</a></li>
+                <li><a href="#contact"><i class="fas fa-signal"></i> Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <header class="hero">
-        <h1 class="glitch" data-text="KONGOZA KOFFI">KONGOZA KOFFI</h1>
-        <p class="subtitle">Développeur Web Fullstack</p>
-        <div class="available-badge"><span class="dot"></span> Disponible pour projets</div>
-        <a href="#contact" class="btn">Let’s Talk</a>
+        <div class="scanner-line"></div>
+        <h1 class="glitch" data-text="SYLLA SEKOU">SYLLA SEKOU</h1>
+        <p class="subtitle">PRESIDENT MCI | BRAND DESIGNER | EXPERT BTP</p>
+        <div class="available-badge"><span class="dot"></span> SYSTÈME OPÉRATIONNEL</div>
+        <a href="#mission1" class="btn">DÉCOLLAGE <i class="fas fa-arrow-right"></i></a>
     </header>
 
-    <section id="projects" class="section">
+    <section id="mission1" class="section mission-card">
         <div class="container">
-            <h2 class="section-title">Projets</h2>
-            <div class="grid" id="projectsGrid"></div>
+            <h2 class="section-title">MISSION 01 : LEADERSHIP & IMPACT</h2>
+            <div class="mission-briefing">
+                <h3><i class="fas fa-users"></i> PRÉSIDENT - ONG MCI</h3>
+                <p>Commandant de bord du <strong>Projet Siguisso</strong>. Mission : Réinsertion de 5 000 artisans à Abidjan.</p>
+                <div class="progress-bar"><div class="fill" style="width: 100%;"></div></div>
+                <span>STATUS: ACCOMPLI 🟢</span>
+            </div>
         </div>
     </section>
 
-    <section id="skills" class="section dark">
-    <div class="container">
-        <h2 class="section-title">Compétences</h2>
-        <div class="skills-wrapper">
-            <div class="skill-card">
-                <i class="fab fa-html5"></i>
-                <span>HTML5</span>
-            </div>
-            <div class="skill-card">
-                <i class="fab fa-css3-alt"></i>
-                <span>CSS3</span>
-            </div>
-            <div class="skill-card">
-                <i class="fab fa-js"></i>
-                <span>JavaScript</span>
-            </div>
-            <div class="skill-card">
-                <i class="fab fa-php"></i>
-                <span>PHP</span>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-database"></i>
-                <span>MySQL</span>
-            </div>
-            <div class="skill-card">
-                <i class="fab fa-git-alt"></i>
-                <span>Git</span>
+    <section id="mission2" class="section dark mission-card">
+        <div class="container">
+            <h2 class="section-title">MISSION 02 : BRANDING & VISUELS</h2>
+            <div class="grid">
+                <div class="skill-card">
+                    <i class="fas fa-store"></i>
+                    <span>BÉNIE SHOP</span>
+                    <p>Identité visuelle complète</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-building"></i>
+                    <span>MELANIE INFRA</span>
+                    <p>Branding Corporate & Signalétique</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <section id="contact" class="section">
+    <section id="mission3" class="section mission-card">
         <div class="container">
-            <h2 class="section-title">Contact</h2>
+            <h2 class="section-title">MISSION 03 : RIGUEUR TECHNIQUE</h2>
+            <div class="mission-briefing">
+                <p><i class="fas fa-microchip"></i> Digitalisation de documents complexes (Hydraulique, BTP, Électricité).</p>
+                <ul class="tech-list">
+                    <li>[✔] Rapports de chantiers</li>
+                    <li>[✔] Fiches Pédagogiques</li>
+                    <li>[✔] Transcription de notes manuscrites</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section dark">
+        <div class="container">
+            <h2 class="section-title">TRANSMETTRE UN SIGNAL</h2>
             <form class="contact-form">
-                <input type="text" placeholder="Nom" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message" rows="5" required></textarea>
-                <button type="submit" class="btn">Envoyer le Signal</button>
+                <input type="text" placeholder="IDENTIFIANT (Nom)" required>
+                <input type="email" placeholder="FRÉQUENCE (Email)" required>
+                <textarea placeholder="VOTRE MESSAGE..." rows="5" required></textarea>
+                <button type="submit" class="btn">ENVOYER LE SIGNAL</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>© <span id="year"></span> KONGOZA KOFFI</p>
+        <p>© <span id="year"></span> SYLLA SEKOU | MISSION ACCOMPLISHED</p>
     </footer>
 
-   <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-</html>
