@@ -1,131 +1,45 @@
-/* --- BASE & LAYOUT --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+// 1. Année Auto
+document.getElementById("year").textContent = new Date().getFullYear();
 
-body { 
-    background-color: #000; 
-    color: #fff; 
-    font-family: 'Share Tech Mono', monospace; 
-    line-height: 1.6; 
-    overflow-x: hidden;
+// 2. Projets Dynamiques
+const projects = [
+  { title: "Cyber Café", desc: "Gestion de temps et facturation.", tech: ["PHP", "MySQL"], img:"cyber.png" },
+  { title: "E-commerce", desc: "Boutique en ligne moderne.", tech: ["JS", "CSS"], img:"itstore.jpeg" },
+  { title: "Portfolio", desc: "Le site que vous voyez ici.", tech: ["HTML", "JS"], img:"porfoglio.png" }
+];
+
+const grid = document.getElementById("projectsGrid");
+projects.forEach(p => {
+    grid.innerHTML += `
+    <div class="project-card">
+        <img src="${p.img}">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="tech-list">${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+    </div>`;
+});
+
+// 3. Effet Matrix
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+const drops = Array(Math.floor(columns)).fill(1);
+
+function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#f97316";
+    ctx.font = fontSize + "px monospace";
+    for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+    }
 }
-
-#matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.2; }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-section { padding: 80px 0; }
-
-/* --- NAVBAR --- */
-.navbar { 
-    padding: 20px 0; 
-    background: rgba(0,0,0,0.8); 
-    position: sticky; 
-    top: 0; 
-    z-index: 100; 
-    border-bottom: 1px solid #333;
-}
-.nav-flex { display: flex; justify-content: space-between; align-items: center; }
-.nav-links { display: flex; list-style: none; gap: 20px; }
-.nav-links a { color: #fff; text-decoration: none; border-bottom: 1px solid transparent; }
-.nav-links a:hover { color: #f97316; border-color: #f97316; }
-.logo { color: #f97316; font-weight: bold; font-size: 1.2rem; }
-
-/* --- HERO SECTION --- */
-.hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-.subtitle { font-size: 1.5rem; color: #f97316; margin-bottom: 20px; }
-
-/* EFFET GLITCH SUR LE NOM */
-.glitch {
-    position: relative;
-    font-size: 4rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #fff;
-    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-                -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
-                0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-}
-.glitch:hover { animation: glitch-anim 500ms infinite; }
-
-@keyframes glitch-anim {
-    0%, 14% { text-shadow: 0.05em 0 0 rgba(255,0,0,.75), -0.05em -0.025em 0 rgba(0,255,0,.75), -0.025em 0.05em 0 rgba(0,0,255,.75); }
-    15%, 49% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,.75), 0.025em 0.025em 0 rgba(0,255,0,.75), -0.05em -0.05em 0 rgba(0,0,255,.75); }
-    50%, 99% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,.75), 0.05em 0 0 rgba(0,255,0,.75), 0 -0.05em 0 rgba(0,0,255,.75); }
-    100% { text-shadow: -0.025em 0 0 rgba(255,0,0,.75), -0.025em -0.025em 0 rgba(0,255,0,.75), -0.025em -0.05em 0 rgba(0,0,255,.75); }
-}
-
-/* --- PROJECTS --- */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.project-card { 
-    background: #111; border: 1px solid #333; padding: 15px; border-radius: 8px;
-    transition: 0.3s;
-}
-.project-card:hover { border-color: #f97316; transform: translateY(-5px); }
-.project-card img { width: 100%; border-radius: 4px; margin-bottom: 15px; }
-.project-card h3 { color: #f97316; margin-bottom: 10px; }
-
-/* --- SKILLS WITH ICONS --- */
-.skills-wrapper { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; }
-.skill-card { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100px; transition: 0.3s; }
-.skill-card i { font-size: 3rem; color: #f97316; text-shadow: 0 0 10px rgba(249, 115, 22, 0.4); }
-.skill-card span { font-size: 0.9rem; color: #fff; text-transform: uppercase; }
-.skill-card:hover i { transform: scale(1.2); color: #fff; text-shadow: 0 0 20px #f97316; }
-
-/* --- CONTACT FORM (FIXED) --- */
-.contact-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
-
-.contact-form input, 
-.contact-form textarea { 
-    width: 100%; 
-    padding: 12px; 
-    background: rgba(17, 17, 17, 0.9); /* Fond plus sombre pour la lisibilité */
-    border: 1px solid #333; 
-    color: #fff; 
-    font-family: inherit;
-    border-radius: 4px;
-    outline: none;
-    transition: 0.3s;
-}
-
-.contact-form textarea {
-    min-height: 150px;
-    resize: vertical; /* Empêche de casser le design en largeur */
-}
-
-.contact-form input:focus, 
-.contact-form textarea:focus {
-    border-color: #f97316;
-    box-shadow: 0 0 10px rgba(249, 115, 22, 0.2);
-}
-
-/* --- BUTTONS & FOOTER --- */
-.tag { 
-    display: inline-block; padding: 3px 10px; border: 1px solid #f97316; 
-    color: #f97316; font-size: 0.8rem; margin: 5px 5px 0 0; 
-}
-
-.btn { 
-    background: #f97316; 
-    color: #000; 
-    padding: 12px 25px; 
-    text-decoration: none; 
-    border-radius: 4px; 
-    font-weight: bold; 
-    border: none; 
-    cursor: pointer;
-    transition: 0.3s;
-    margin-top: 10px;
-}
-.btn:hover { background: #fff; box-shadow: 0 0 20px #f97316; }
-
-footer { text-align: center; padding: 40px 0; border-top: 1px solid #333; margin-top: 50px; }
-.contact-form textarea {
-    resize: vertical; /* Empêche l'élargissement horizontal */
-    max-height: 400px; /* Optionnel : empêche de l'étirer trop vers le bas */
-    resize: none;
-}
-.project-card img {
-    width: 100%;
-    height: 180px;      /* Force une hauteur fixe */
-    object-fit: cover;  /* Coupe l'image proprement sans l'écraser */
-    border-bottom: 1px solid #333;
-    margin-bottom: 10px;
-}   VOICI LE CODE CSS
+setInterval(draw, 50);
